@@ -11,6 +11,8 @@ type Result<T> = Ok<T> | Err;
 const SIGNATURE_RE = /^data:image\/png;base64,[A-Za-z0-9+/=]+$/;
 
 export const FEEDBACK_MAX_WORDS = 200;
+
+export function countWords(text: string): number {
   return text.trim().split(/\s+/).filter(Boolean).length;
 }
 
@@ -18,6 +20,7 @@ export function validateName(raw: unknown): Result<string> {
   if (typeof raw !== "string" || raw.trim().length === 0) {
     return { ok: false, status: 400, message: "Name is required." };
   }
+
   if (raw.length > NAME_MAX_LENGTH) {
     return {
       ok: false,
@@ -25,11 +28,13 @@ export function validateName(raw: unknown): Result<string> {
       message: `Name must be ${NAME_MAX_LENGTH} characters or fewer.`,
     };
   }
+
   return { ok: true, value: raw.trim() };
 }
 
 export function validateSignature(raw: unknown): Result<string | null> {
   if (raw === null || raw === undefined) return { ok: true, value: null };
+
   if (typeof raw !== "string") {
     return { ok: false, status: 400, message: "Invalid signature." };
   }
