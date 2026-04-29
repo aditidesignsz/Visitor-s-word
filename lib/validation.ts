@@ -1,6 +1,5 @@
 import {
   FEEDBACK_MAX_CHARS,
-  FEEDBACK_MAX_WORDS,
   NAME_MAX_LENGTH,
   SIGNATURE_MAX_BYTES,
 } from "./types";
