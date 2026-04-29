@@ -6,7 +6,8 @@ import {
   useState,
 } from "react";
 import { generateVisitorName } from "../lib/visitor-name";
-import { countWords, FEEDBACK_MAX_WORDS } from "../lib/validation";
+import { countWords } from "../lib/validation";
+import { FEEDBACK_MAX_WORDS } from "../lib/types";
 import { PALETTE, paletteFor } from "../lib/types";
 import type { CardColor, PublicVisitor } from "../lib/types";
 
