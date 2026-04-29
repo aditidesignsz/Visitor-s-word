@@ -11,7 +11,7 @@ type Result<T> = Ok<T> | Err;
 
 const SIGNATURE_RE = /^data:image\/png;base64,[A-Za-z0-9+/=]+$/;
 
-export function countWords(text: string): number {
+export const FEEDBACK_MAX_WORDS = 200;
   return text.trim().split(/\s+/).filter(Boolean).length;
 }
 
